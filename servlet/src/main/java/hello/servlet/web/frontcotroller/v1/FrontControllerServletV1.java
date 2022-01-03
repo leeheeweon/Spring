@@ -1,6 +1,6 @@
 package hello.servlet.web.frontcotroller.v1;
 
-import hello.servlet.web.frontcotroller.v1.controller.MemberFrontControllerV1;
+import hello.servlet.web.frontcotroller.v1.controller.MemberFormControllerV1;
 import hello.servlet.web.frontcotroller.v1.controller.MemberListControllerV1;
 import hello.servlet.web.frontcotroller.v1.controller.MemberSaveControllerV1;
 
@@ -19,7 +19,7 @@ public class FrontControllerServletV1 extends HttpServlet {
     private Map<String, ControllerV1> controllerV1Map = new HashMap<>();
 
     public FrontControllerServletV1() {
-        controllerV1Map.put("/front-controller/v1/members/new-form" , new MemberFrontControllerV1());
+        controllerV1Map.put("/front-controller/v1/members/new-form" , new MemberFormControllerV1());
         controllerV1Map.put("/front-controller/v1/members/save" , new MemberSaveControllerV1());
         controllerV1Map.put("/front-controller/v1/members" , new MemberListControllerV1());
     }
