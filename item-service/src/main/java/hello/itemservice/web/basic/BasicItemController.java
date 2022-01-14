@@ -20,12 +20,8 @@ public class BasicItemController {
 
     private final ItemRepository itemRepository;
 
-    @RequestMapping
-    public String items(Item item, Model model) {
-        if (item.getItemName() != null) {
-            itemRepository.save(item);
-        }
-
+    @GetMapping
+    public String items(Model model) {
         List<Item> items = itemRepository.findAll();
         model.addAttribute("items", items);
         return "basic/items";
@@ -38,10 +34,28 @@ public class BasicItemController {
         return "basic/item";
     }
 
-    @GetMapping("/add")
-    public String add() {
-
+    @GetMapping("/addForm")
+    public String openAddForm() {
         return "basic/add";
+    }
+
+    @PostMapping("/add")
+    public String add(Item item) {
+        itemRepository.save(item);
+        return "redirect:/basic/items";
+    }
+
+    @GetMapping("/{itemId}/edit")
+    public String edit(@PathVariable long itemId, Model model) {
+        Item item = itemRepository.findById(itemId);
+        model.addAttribute("item", item);
+        return "basic/edit";
+    }
+
+    @PostMapping("/{itemId}/update")
+    public String update(@PathVariable long itemId, Item item) {
+        itemRepository.update(itemId, item);
+        return "redirect:/basic/items";
     }
 
     /**
@@ -51,7 +65,5 @@ public class BasicItemController {
     public void init() {
         itemRepository.save(new Item("itemA", 10000, 10));
         itemRepository.save(new Item("itemB", 20000, 20));
-
     }
-
 }
