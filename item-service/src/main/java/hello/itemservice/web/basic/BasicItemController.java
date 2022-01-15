@@ -44,7 +44,7 @@ public class BasicItemController {
 
     @PostMapping("/add")
     public String save(Item item) {
-        //Item->item model에 네임으로 지정
+        //클래스명 Item->item model에 네임으로 지정 (@ModelAttribute 생략가능)
         itemRepository.save(item);
         return "/basic/item";
     }
