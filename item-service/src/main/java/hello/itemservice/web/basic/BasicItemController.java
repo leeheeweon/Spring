@@ -11,10 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -40,15 +37,16 @@ public class BasicItemController {
         return "basic/item";
     }
 
-    @GetMapping("/addForm")
-    public String openAddForm() {
-        return "basic/add";
+    @GetMapping("/add")
+    public String addForm() {
+        return "basic/addForm";
     }
 
     @PostMapping("/add")
-    public String add(Item item) {
+    public String save(Item item) {
+        //Item->item model에 네임으로 지정
         itemRepository.save(item);
-        return "redirect:/basic/items";
+        return "/basic/item";
     }
 
     @GetMapping("/{itemId}/edit")
