@@ -12,6 +12,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -43,21 +44,23 @@ public class BasicItemController {
     }
 
     @PostMapping("/add")
-    public String save(Item item) {
+    public String save(Item item , RedirectAttributes redirectAttributes) {
         //클래스명 Item->item model에 네임으로 지정 (@ModelAttribute 생략가능)
-        itemRepository.save(item);
-        return "/basic/item";
+        Item savedItem = itemRepository.save(item);
+        redirectAttributes.addAttribute("itemId", savedItem.getId());
+        redirectAttributes.addAttribute("status", true);
+        return "redirect:/basic/items/{itemId}";
     }
 
     @GetMapping("/{itemId}/edit")
-    public String edit(@PathVariable long itemId, Model model) {
+    public String editForm(@PathVariable long itemId, Model model) {
         Item item = itemRepository.findById(itemId);
         model.addAttribute("item", item);
-        return "basic/edit";
+        return "basic/editForm";
     }
 
-    @PostMapping("/{itemId}/update")
-    public String update(@PathVariable long itemId, Item item) {
+    @PostMapping("/{itemId}/edit")
+    public String edit(@PathVariable long itemId, Item item) {
         itemRepository.update(itemId, item);
         return "redirect:/basic/items";
     }
