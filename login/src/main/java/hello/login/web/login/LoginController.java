@@ -33,6 +33,7 @@ public class LoginController {
 
     //    @PostMapping("/login")
     public String login(@Validated LoginForm form, BindingResult bindingResult, HttpServletResponse response) {
+
         if (bindingResult.hasErrors()) {
             return "login/loginForm";
         }
