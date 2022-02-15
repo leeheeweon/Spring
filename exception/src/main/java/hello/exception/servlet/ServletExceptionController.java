@@ -16,6 +16,11 @@ public class ServletExceptionController {
         throw new RuntimeException("예외 발생");
     }
 
+    @GetMapping("/error-400")
+    public void error400(HttpServletResponse response) throws IOException {
+        response.sendError(400, "400페이지를 찾을 수 없습니다.");
+    }
+
     @GetMapping("/error-404")
     public void error404(HttpServletResponse response) throws IOException {
         response.sendError(404, "404페이지를 찾을 수 없습니다.");
