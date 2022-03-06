@@ -55,6 +55,7 @@ public class TemplateMethodTest {
                 log.info("비즈니스 로직 1 실행");
             }
         };
+
         log.info("클래스 이름1={}", template1.getClass());
         template1.execute();
 
