@@ -19,6 +19,7 @@ public class OrderControllerV2 {
     @GetMapping("/v2/requset")
     public String request(String itemId) {
         orderService.orderItem(itemId);
+        
         return "ok";
     }
 
