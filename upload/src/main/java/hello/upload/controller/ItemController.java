@@ -45,7 +45,6 @@ public class ItemController {
         item.setAttachFile(attachFile);
         item.setImageFiles(storeImageFiles);
         itemRepository.save(item);
-
         redirectAttributes.addAttribute("itemId", item.getId());
 
         return "redirect:/items/{itemId}";
@@ -77,7 +76,7 @@ public class ItemController {
         String encodedUploadFileName = UriUtils.encode(uploadFileName, StandardCharsets.UTF_8);
         String contentDisposition = "attachment; filename=\"" + encodedUploadFileName + "\"";
 
-        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,contentDisposition).body(resource);
+        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, contentDisposition).body(resource);
 
     }
 
