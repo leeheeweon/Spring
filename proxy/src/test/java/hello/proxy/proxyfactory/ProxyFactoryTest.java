@@ -12,7 +12,6 @@ import org.springframework.aop.support.AopUtils;
 
 @Slf4j
 public class ProxyFactoryTest {
-
     @Test
     @DisplayName("인터페이스가 있으면 jdk 동적 프록시를 사용")
     void interfaceProxy() {
