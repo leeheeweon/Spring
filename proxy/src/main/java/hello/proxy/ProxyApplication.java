@@ -33,7 +33,4 @@ public class ProxyApplication {
 	public LogTrace logTrace(){
 		return new ThreadLocalLogTrace();
 	}
-
-
-
 }
