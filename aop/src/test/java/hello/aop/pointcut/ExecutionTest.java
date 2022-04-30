@@ -158,5 +158,4 @@ public class ExecutionTest {
         pointcut.setExpression("execution(* *(String, ..))");
         Assertions.assertThat(pointcut.matches(helloMethod, MemberServiceImpl.class)).isTrue();
     }
-
 }
