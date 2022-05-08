@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Import;
 @Import(BeanTest.BeanAspect.class)
 @SpringBootTest
 public class BeanTest {
-
     @Autowired
     OrderService orderService;
 
