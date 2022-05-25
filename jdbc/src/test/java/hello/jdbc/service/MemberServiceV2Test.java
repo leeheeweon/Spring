@@ -39,7 +39,6 @@ class MemberServiceV2Test {
         memberRepository.delete(MEMBER_A);
         memberRepository.delete(MEMBER_B);
         memberRepository.delete(MEMBER_EX);
-
     }
 
     @Test
