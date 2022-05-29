@@ -21,6 +21,7 @@ import static hello.jdbc.connection.ConnectionConst.*;
  */
 
 class MemberServiceV3_1Test {
+
     public static final String MEMBER_A = "memberA";
     public static final String MEMBER_B = "memberB";
     public static final String MEMBER_EX = "ex";
