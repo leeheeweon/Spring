@@ -43,7 +43,7 @@
         <div>
             <label for="price" th:text="#{label.item.price}">가격</label>
             <input type="text" id="price" th:field="*{price}" th:errorclass="field-error" class="form-control">
-            <div class="field-error" th:errors="*{price}">
+            <div class="field-error" th:errors="*{price}" >
                 가격 오류
             </div>
         </div>
