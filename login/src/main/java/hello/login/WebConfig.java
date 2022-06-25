@@ -48,7 +48,7 @@ public class WebConfig implements WebMvcConfigurer {
         return filterRegistrationBean;
     }
 
-//    @Bean
+    //    @Bean
     public FilterRegistrationBean loginCheckFilter() {
         FilterRegistrationBean<Filter> filterRegistrationBean = new FilterRegistrationBean<>();
         filterRegistrationBean.setFilter(new LoginCheckFilter());
