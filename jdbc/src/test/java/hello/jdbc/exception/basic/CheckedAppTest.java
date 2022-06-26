@@ -23,7 +23,6 @@ public class CheckedAppTest {
         }
     }
 
-
     static class Service {
         Repository repository = new Repository();
         NetworkClient networkClient = new NetworkClient();
