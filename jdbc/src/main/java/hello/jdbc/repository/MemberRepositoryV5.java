@@ -28,7 +28,6 @@ public class MemberRepositoryV5 implements MemberRepository {
     @Override
     public Member save(Member member) {
         String sql = "insert into member(member_id,money) values (?,?)";
-
         template.update(sql, member.getMemberId(), member.getMoney());
         return member;
     }
