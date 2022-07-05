@@ -20,7 +20,6 @@ import java.util.NoSuchElementException;
 public class MemberRepositoryV5 implements MemberRepository {
 
     private final JdbcTemplate template;
-
     public MemberRepositoryV5(DataSource dataSource) {
         this.template = new JdbcTemplate(dataSource);
     }
