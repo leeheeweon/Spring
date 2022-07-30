@@ -16,6 +16,7 @@ public class CheckedAppTest {
 
     static class Controller {
         Service service = new Service();
+
         public void logic() throws SQLException, ConnectException {
             service.logic();
         }
