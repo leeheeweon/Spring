@@ -20,6 +20,7 @@ public class CheckedAppTest {
         public void logic() throws SQLException, ConnectException {
             service.logic();
         }
+
     }
 
     static class Service {
