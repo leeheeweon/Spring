@@ -7,7 +7,6 @@ import java.net.ConnectException;
 import java.sql.SQLException;
 
 public class CheckedAppTest {
-    
     @Test
     void checked() {
         Controller controller = new Controller();
