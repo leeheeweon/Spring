@@ -43,5 +43,4 @@ public class CheckedAppTest {
             throw new SQLException();
         }
     }
-
 }
